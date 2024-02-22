@@ -9,7 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
 # Install packages
-RUN apt update; apt -y install podman skopeo buildah curl wget vim jq git gnupg2 dnsutils postgresql-client mysql-client; rm -rf /var/cache/apt
+RUN apt update && apt upgrade; apt -y install iputils-ping iputils-tracepath nmap netcat telnet mtr-tiny ipcalc podman skopeo buildah curl wget vim jq git gnupg2 dnsutils postgresql-client mysql-client; rm -rf /var/cache/apt
 
 # Install yq
 RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 && chmod u+x /usr/local/bin/yq
